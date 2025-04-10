@@ -59,17 +59,17 @@ Doing this could result in the above penalty if the game stops working...
 
 --[[16]]buttonName = "assets/buttonLong_grey.png"
 
---[[17]]buttonTint = {r = 237, g = 76, b = 232}
+--[[17]]buttonTint = {r = 107, g = 105, b = 105}
 
 --PlayGame class constants x 20 ********************************************************************************************
 --[[18]]invincibilityTime = 5.0 --filled out for you
 --[[19]]MaximumLevels = 4 --filled out for you
---[[20 make at least 50 enemies (or count the max number in all the levels)]]maximumPooledEnemies = 75
+--[[20 make at least 50 enemies (or count the max number in all the levels)]]maximumPooledEnemies = 100
 --[[21]]timeBetweenShots = 0.5
---[[22]]MaximumPooledPlayerShots = 20
---[[23]]MaximumPooledEnemyShots = 20
---[[24 gets the game scrolling]]SceneScrollAmmount = 25
---[[25]]DistanceFromEndLevelExit = 50
+--[[22]]MaximumPooledPlayerShots = 5
+--[[23]]MaximumPooledEnemyShots = 5
+--[[24 gets the game scrolling]]SceneScrollAmmount = 200
+--[[25]]DistanceFromEndLevelExit = 2500
 
 --[[26 bullet variant 1]]PlayerBulletSprite = "assets/laser player.png"
 --[[27 bullet variant 2]]EnemyBulletSprite = "assets/laser enemy.png"
@@ -91,13 +91,13 @@ Doing this could result in the above penalty if the game stops working...
 --Game over class constants x 4 *******************************************************************************************
 --[[38]]GameOverTimeLimit = 5.0 --filled out for you
 --[[39]]GameOverTextColour = {r = 150, g = 79, b = 255} --filled out for you
---[[40]]GameOverMessagePosition = {x = 250, y = 300}
+--[[40]]GameOverMessagePosition = {x = 860, y = 500}
 --[[41]]GameOverMessage = "LOSER!!!"
 
 --Hud class constants x 7 *************************************************************************************************
 --[[42]]smallTextSize = 10
---[[43]]mediumTextSize = 15
---[[44]]largeTextSize = 20
+--[[43]]mediumTextSize = 30
+--[[44]]largeTextSize = 90
 
 --[[45 font 1]]fontName1 = "assets/DejaVuSans.ttf"
 --[[46 font 2]]fontName2 = "assets/DejaVuSans.ttf" --TODO: maybe get another font
@@ -122,16 +122,16 @@ Doing this could result in the above penalty if the game stops working...
 --[[53 the player ship]]PlayerSprite = "assets/player ship.png"
 
 --Player class constants x 4 ************************************************************************************************
---[[54]]MaxLives = 6
---[[55 starting lives]]InitialLives = 3
+--[[54]]MaxLives = 10
+--[[55 starting lives]]InitialLives = 5
 --[[56]]ScoreMultiplier = 2
 --[[57]]ScoreMultipleToGetBonus = 1000 --filled out for you
 
 --Enemy class constants x 1 ************************************************************************************************* 
---[[58 how much are enemies worth]]enemyPointValue = 25
+--[[58 how much are enemies worth]]enemyPointValue = 250
 
 --Projectile class constants x 1 ********************************************************************************************
---[[59 how fast should bullets be?]]bulletSpeed = 10
+--[[59 how fast should bullets be?]]bulletSpeed = 3
 
 --Level class constants x 6 (correctly filling out the table here is worth 5 points)****************************************
 
