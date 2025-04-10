@@ -33,56 +33,56 @@ Doing this could result in the above penalty if the game stops working...
 *****************************************************************************************************************************]]
 
 --Window init constants (In main) x 4 *************************************************************************************
---[[1]]
---[[2]]
---[[3]]
---[[4]]
+--[[1]]width = 800
+--[[2]]height = 500
+--[[3]]screenX = 0
+--[[4]]screenY = 0
 
 --Game class constants x 1 *************************************************************************************************
---[[5]]
+--[[5]]FPS = 60
 
 --SceneManager constants x 8 ***********************************************************************************************
 --[[6]]HiScorePosition = {x = 10, y = 0} --filled out for you
 --[[7]]HiScoreTextColour = {r = 150, g = 79, b = 255} --filled out for you
---[[8]]
---[[9]]
+--[[8]]LastScorePosition = {x = 10, y = 10}
+--[[9]]LastScoreTextColour = {r = 255, g = 79, b = 129}
 
---[[10]]
---[[11]]
+--[[10]]ButtonTextColour = {r = 79, g = 161, b = 255}
+--[[11]]ButtonHoverTextColour = {r = 30, g = 61, b = 97}
 
---[[12]]
---[[13]]
+--[[12]]MenuClearColour = {r = 91, g = 237, b = 71}
+--[[13]]GameOverClearColour = {r = 158, g = 21, b = 21}
 
 --Menu class constants x 4 *************************************************************************************************
---[[14]]
---[[15]]
+--[[14]]button1Ypos = 100
+--[[15]]button2Ypos = 150
 
---[[16]]
+--[[16]]buttonName = "assets/buttonLong_grey.png"
 
---[[17]]
+--[[17]]buttonTint = {r = 237, g = 76, b = 232}
 
 --PlayGame class constants x 20 ********************************************************************************************
 --[[18]]invincibilityTime = 5.0 --filled out for you
 --[[19]]MaximumLevels = 4 --filled out for you
---[[20 make at least 50 enemies (or count the max number in all the levels)]]
---[[21]]
---[[22]] 
---[[23]]
---[[24 gets the game scrolling]]
---[[25]]
+--[[20 make at least 50 enemies (or count the max number in all the levels)]]maximumPooledEnemies = 75
+--[[21]]timeBetweenShots = 0.5
+--[[22]]MaximumPooledPlayerShots = 20
+--[[23]]MaximumPooledEnemyShots = 20
+--[[24 gets the game scrolling]]SceneScrollAmmount = 5
+--[[25]]DistanceFromEndLevelExit = 50
 
---[[26 bullet variant 1]]
---[[27 bullet variant 2]]
+--[[26 bullet variant 1]]PlayerBulletSprite = "assets/laser player.png"
+--[[27 bullet variant 2]]EnemyBulletSprite = "assets/laser enemy.png"
 --[[28]]ScrollingBGImage = "assets/blue.png" --filled out for you
 
 --[[29]]LivesTextColour = {r = 250, g = 120, b = 200} --filled out for you
 --[[30]]livesTextPosition = {x = 0, y = 0} --filled out for you
 --[[31]]LivesIconImagePosition = {x = 0, y = 10} --filled out for you
 
---[[32]]
+--[[32]]LevelTextColour = {r = 10, g = 17, b = 43}
 --[[33]]LevelTextPosition = {x = 100, y = 0} --filled out for you
 
---[[34]]
+--[[34]]ScoreTextColour = {r = 191, g = 43, b = 23}
 --[[35]]ScoreTextPosition = {x = 750, y = 0} --filled out for you
 
 --[[36]]FramerateColour = {r = 250, g = 250, b = 210} --filled out for you
@@ -91,61 +91,61 @@ Doing this could result in the above penalty if the game stops working...
 --Game over class constants x 4 *******************************************************************************************
 --[[38]]GameOverTimeLimit = 5.0 --filled out for you
 --[[39]]GameOverTextColour = {r = 150, g = 79, b = 255} --filled out for you
---[[40]]
---[[41]]
+--[[40]]GameOverMessagePosition = {x = 250, y = 300}
+--[[41]]GameOverMessage = "LOSER!!!"
 
 --Hud class constants x 7 *************************************************************************************************
---[[42]]
---[[43]]
---[[44]]
+--[[42]]smallTextSize = 10
+--[[43]]mediumTextSize = 15
+--[[44]]largeTextSize = 20
 
---[[45 font 1]]
---[[46 font 2]]
+--[[45 font 1]]fontName1 = "assets/DejaVuSans.ttf"
+--[[46 font 2]]fontName2 = "assets/DejaVuSans.ttf" --TODO: maybe get another font
 --[[47 font 3]]fontName3 = "assets/gomarice_g_type.ttf"--"assets/DejaVuSans.ttf" --filled out for you
 
---[[48 the lives image]]
+--[[48 the lives image]]LivesIcon = "assets/playerLife3_blue.png"
 
 --Creature class constants x 5 ( correctly filling out the 2 tables is worth 10 points)***********************************
---[[49 size of death animation]]
---[[50 how long to play frames?]]
+--[[49 size of death animation]]maxDeathAnimationFrames = 6
+--[[50 how long to play frames?]]timeToPlayFrames = 0.25
 
 --make a table here for all 6 of the enemy sprites i.e. the filenames
 --The table keys should use letters NOT numbers (i.e. a = "assets/anasset.png")
 --look in the place they are set in the creature class to see
---[[51 the different enemy ships]]
+--[[51 the different enemy ships]]enemySprites = {a = "assets/enemyBlack1.png", b = "assets/enemyBlue5.png", c = "assets/enemyGreen2.png", d = "assets/enemyOrange3.png", e = "assets/enemyRed3.png", f = "assets/enemyLightBlue4.png"}
 
 --make a table here for all 9 of the explosion frames
 --The table keys should use letters NOT numbers (i.e. a = "assets/anasset.png")
 --look in the place they are set in the creature class to see
---[[52 all the explosion frames]]
+--[[52 all the explosion frames]]explosionFrames = {a = "assets/regularExplosion01.png", b = "assets/regularExplosion02.png", c = "assets/regularExplosion03.png", d = "assets/regularExplosion04.png", e = "assets/regularExplosion05.png", f = "assets/regularExplosion06.png"}
 
---[[53 the player ship]]
+--[[53 the player ship]]PlayerSprite = "assets/player ship.png"
 
 --Player class constants x 4 ************************************************************************************************
---[[54]]
---[[55 starting lives]]
---[[56]]
+--[[54]]MaxLives = 6
+--[[55 starting lives]]InitialLives = 3
+--[[56]]ScoreMultiplier = 2
 --[[57]]ScoreMultipleToGetBonus = 1000 --filled out for you
 
 --Enemy class constants x 1 ************************************************************************************************* 
---[[58 how much are enemies worth]]
+--[[58 how much are enemies worth]]enemyPointValue = 25
 
 --Projectile class constants x 1 ********************************************************************************************
---[[59 how fast should bullets be?]]
+--[[59 how fast should bullets be?]]bulletSpeed = 10
 
 --Level class constants x 6 (correctly filling out the table here is worth 5 points)****************************************
 
 --make a table here for all 6 of the coloured wall images
 --The table keys should use letters NOT numbers (i.e. a = "assets/anasset.png")
 --look in the place they are set in the Level class to see
---[[60 the different coloured wall blocks]]
+--[[60 the different coloured wall blocks]]LevelBasedWallTextures = {a = "assets/spaceBuilding_012.png", b = "assets/spaceBuilding_011.png", c = "assets/spaceBuilding_010.png", d = "assets/spaceBuilding_009.png", e = "assets/spaceBuilding_008.png", f = "assets/spaceBuilding_007.png"}
 
 --[[61]]nonCollidableBackgroundWall = "assets/spaceBuilding_001.png" --filled out for you
---[[62 we want slightly darker bg walls]]
+--[[62 we want slightly darker bg walls]]nonCollidableBackgroundWallTint = {r = 64, g = 64, b = 64}
 
 --[[63]]foregroundWindowImage = "assets/spaceStation_003.png" --filled out for you
---[[64]]
---[[65 what level are we starting on]]
+--[[64]]WindowTint = {r = 64, g = 64, b = 64}
+--[[65 what level are we starting on]]startingLevel = 1
 
 --Audio class constants x 5 *************************************************************************************************
 --[[66]]maximumSFX = 4 --filled out for you
