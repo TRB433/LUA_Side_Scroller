@@ -33,8 +33,8 @@ Doing this could result in the above penalty if the game stops working...
 *****************************************************************************************************************************]]
 
 --Window init constants (In main) x 4 *************************************************************************************
---[[1]]width = 800
---[[2]]height = 500
+--[[1]]width = 1920
+--[[2]]height = 1080
 --[[3]]screenX = 0
 --[[4]]screenY = 0
 
@@ -68,7 +68,7 @@ Doing this could result in the above penalty if the game stops working...
 --[[21]]timeBetweenShots = 0.5
 --[[22]]MaximumPooledPlayerShots = 20
 --[[23]]MaximumPooledEnemyShots = 20
---[[24 gets the game scrolling]]SceneScrollAmmount = 5
+--[[24 gets the game scrolling]]SceneScrollAmmount = 25
 --[[25]]DistanceFromEndLevelExit = 50
 
 --[[26 bullet variant 1]]PlayerBulletSprite = "assets/laser player.png"
@@ -117,7 +117,7 @@ Doing this could result in the above penalty if the game stops working...
 --make a table here for all 9 of the explosion frames
 --The table keys should use letters NOT numbers (i.e. a = "assets/anasset.png")
 --look in the place they are set in the creature class to see
---[[52 all the explosion frames]]explosionFrames = {a = "assets/regularExplosion01.png", b = "assets/regularExplosion02.png", c = "assets/regularExplosion03.png", d = "assets/regularExplosion04.png", e = "assets/regularExplosion05.png", f = "assets/regularExplosion06.png"}
+--[[52 all the explosion frames]]explosionFrames = {a = "assets/regularExplosion00.png", b = "assets/regularExplosion01.png", c = "assets/regularExplosion02.png", d = "assets/regularExplosion03.png", e = "assets/regularExplosion04.png", f = "assets/regularExplosion05.png", g = "assets/regularExplosion06.png", h = "assets/regularExplosion07.png", i = "assets/regularExplosion08.png"}
 
 --[[53 the player ship]]PlayerSprite = "assets/player ship.png"
 
@@ -196,6 +196,7 @@ function MoveDown(height, speed, posY)
 	then
 		posY = posY + speed
 	end
+	return posY
 end
 
 --function 2 located in creature.cpp and LuaHelper.cpp
@@ -204,13 +205,14 @@ function MoveUp(speed, posY)
 	then
 		posY = posY - speed
 	end
+	return posY
 end
 
 --function 3 located in PlayerCharacter.cpp
 function IncreaseScoreAndLives(lives, score)	
 	score = score + enemyPointValue
 
-	if(score % ScoreMultipleToGetBonus = 0)
+	if(score % ScoreMultipleToGetBonus == 0)
 	then
 		if(lives < MaxLives)
 		then
@@ -220,12 +222,16 @@ function IncreaseScoreAndLives(lives, score)
 		end
 	end
 
+	return lives, score
+
 end
 
 --function 4 located in PlayerCharacter.cpp
 function ResetScore(lastScore, score)
 	lastScore = score
 	score = 0
+
+	return lastScore, score
 end
 
 
@@ -259,10 +265,14 @@ end
 --**********************************************************************************************
 
 --C++ function call 1 in Level.cpp lines 41, 183 and PlayGame.cpp line 262
-
+function BuildLevel()
+	CDispatcher("BuildNewLevel")
+end
 
 --C++ function call 2 in PlayGame.cpp line 261
-
+function ResetEverything()
+	CDispatcher("ResetAll", startingLevel)
+end
 
 --[[*****************************************PART 4 OF ASSIGNMENT TASK***********************************************************
 Create up to 2 more C++ function calls yourself.
