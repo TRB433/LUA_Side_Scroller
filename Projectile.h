@@ -26,7 +26,7 @@ private:
     
     //pointers
     ALLEGRO_BITMAP* p_bullet = NULL;
-    lua_State* L;
+    lua_State* L;     
 
 public:
     //constructor and destructor

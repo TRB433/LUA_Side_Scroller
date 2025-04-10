@@ -37,6 +37,8 @@ private:
 	//methods	
 	void Run();//the method the whole game runs from
 
+	void UpdatePlayer();
+
 	//pointers
 	lua_State* L;
 	ALLEGRO_TIMER* p_Timer;

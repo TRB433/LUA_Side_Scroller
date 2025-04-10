@@ -29,6 +29,10 @@ GameOver::GameOver(Audio* GA)
 	p_GameAudio = GA;
 	m_totalTime = 0.0f;
     m_IsPlaying = false;//init is playing to false 
+
+    //PART 4 code, initialising dispatcher
+    disp.Init(L);
+    Init(disp);
 }
 
 GameOver::~GameOver()
@@ -44,17 +48,25 @@ E_GameStates GameOver::Update(double DeltaTime, Input* input)
 {   
     if (input->key_is_pressed(KEY_M))
     {
+        //commented code and replaced with function call from LUA script for PART 4
+        /*
         if (!p_GameAudio->GetIsMuted())
         {
             p_GameAudio->MuteMusic();;
         }
+        */
+        CallVoidVoidFunc(L, "MutingAudio");
     }
     if (input->key_is_pressed(KEY_ENTER))
     {
+        //commented code and replaced with function call from LUA script for PART 4
+        /*
         if (p_GameAudio->GetIsMuted())
         {
             p_GameAudio->PlayMusic(0);
         }
+        */
+        CallVoidVoidFunc(L, "PlayingAudio");
     }
     //The states transition back to the main menu after a set time
     m_totalTime += DeltaTime;//+ dt to total
@@ -70,6 +82,20 @@ E_GameStates GameOver::Update(double DeltaTime, Input* input)
         return MENU;//enter the MENU state
     }
     return GAME_OVER;
+}
+
+void GameOver::PlayAudio() {
+    if (p_GameAudio->GetIsMuted())
+    {
+        p_GameAudio->PlayMusic(0);
+    }
+}
+
+void GameOver::MuteAudio() {
+    if (!p_GameAudio->GetIsMuted())
+    {
+        p_GameAudio->MuteMusic();;
+    }
 }
 
 void GameOver::Draw(Hud* hud)

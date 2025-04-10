@@ -115,12 +115,12 @@ void Game::Run()
 	while (p_SceneManager->GetState() != QUIT)
 	{			
  		if (p_Input_manager->GetUpdateLogic())
-		{		
+		{				
 			p_Input_manager->update();
 			m_current_time = al_get_time();
 			m_delta = m_current_time - m_last_time;
 			m_last_time = m_current_time;
-			p_SceneManager->Update(p_Input_manager, this);
+			p_SceneManager->Update(p_Input_manager, this);						
 		}
 		if (p_Input_manager->GetRenderFrame())
 		{

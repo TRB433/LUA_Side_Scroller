@@ -284,3 +284,14 @@ Each C++ function you adapt into this script will get you 12.5%
 If your attempt breaks the game, comment out the attempt and get the game back to a working state 
 to avoid the capping penalty. I'll take a look and give an appropriate mark based on how far off I thought you were
 **********************************************************************************************************************************]]
+
+--Added dispatcher/init method to GameOver.h
+--C++ function calls in GameOver.cpp from line 87 to 99
+--Mutes/Plays audio in the game over screen
+function PlayingAudio()
+	CDispatcher("PlayAudio")
+end
+
+function MutingAudio()
+	CDispatcher("MuteAudio")
+end

@@ -32,11 +32,28 @@ private:
 
     bool m_IsPlaying;
 
+    //dispatcher for PART 4
+    Dispatcher disp;    
+
+    //custom methods for PART 4
+    void MuteAudio();
+    void PlayAudio();
+
 public:
     GameOver(Audio* GA);
     ~GameOver();
 
     E_GameStates Update(double DeltaTime, Input* input);
     void Draw(Hud* hud);
+
+    //Init method for PART 4
+    void Init(Dispatcher& disp)
+    {
+        Dispatcher::Command::voidvoidfunc f{ [this](void) {return MuteAudio(); } };
+        disp.Register("MuteAudio", Dispatcher::Command{ f });
+
+        f = { [this](void) {return PlayAudio(); } };
+        disp.Register("PlayAudio", Dispatcher::Command{ f });
+    }
 };
 
